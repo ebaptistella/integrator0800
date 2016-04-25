@@ -1,4 +1,5 @@
 <%= form_tag({:controller => :consult, :action => :index}, {:method => :post}) do |f| %>
+
     <div class="splitcontent">
       <fieldset class="box tabular">
         <p>
@@ -6,6 +7,10 @@
           <%= number_field_tag :chamado_nro, :required => true, :size => 40 %>
           <%= submit_tag l('btn_consultar_chamado') %>
         </p>
+      </fieldset>
+
+      <fieldset class="box tabular">
+        <label></label>
       </fieldset>
     </div>
 
