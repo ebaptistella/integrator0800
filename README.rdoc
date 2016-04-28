@@ -1,6 +1,7 @@
 = Integrator 0800net
 
 Plugin for redmine integration with Ellevo 0800net
+[![Build Status](https://travis-ci.org/ebaptistella/integrator0800.svg?branch=master)](https://travis-ci.org/ebaptistella/integrator0800)
 
 == Supported models
 - Issues
