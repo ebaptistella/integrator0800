@@ -5,7 +5,7 @@ Redmine::Plugin.register :integrator0800 do
   author 'Eurides Baptistella'
   description 'Integração com 0800'
   version '0.0.1'
-  url ''
+  url 'http://ebaptistella.github.io/integrator0800/'
   author_url 'https://about.me/euridesbaptistella'
 
   project_module :integrator0800 do
