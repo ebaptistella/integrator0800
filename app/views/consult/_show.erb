@@ -1,0 +1,68 @@
+<div class="splitcontentleft">
+  <fieldset class="box tabular">
+    <%= hidden_field_tag 'id', @task['id'], readonly: true, size: 10 %>
+
+    <p>
+      <%= label_tag 'title', l('label_task_title') + ':' %>
+      <%= text_field_tag 'title', @task['titulo'], readonly: true, size: 40 %>
+    </p>
+
+    <% @task['camposPersonalizados'].each do |p| %>
+        <p>
+          <%= label_tag p['id'], p['nome'] + ':' %>
+          <%= text_field_tag p['id'], p['texto'], readonly: true, size: 40 %>
+        </p>
+
+    <% end %>
+
+    <p>
+      <%= label_tag 'project', l('label_task_project') + ':' %>
+      <%= text_field_tag 'project', @task['projeto']['descricao'], readonly: true, size: 40 %>
+    </p>
+  </fieldset>
+</div>
+
+<div class="splitcontentright">
+  <fieldset class="box tabular">
+    <p>
+      <%= label_tag 'responsible', l('label_task_responsible') + ':' %>
+      <%= text_field_tag 'responsible', @task['atribuido']['nomeCompleto'] + ' <' + @task['atribuido']['login'] + '>', readonly: true, size: 40 %>
+    </p>
+
+    <p>
+      <%= label_tag 'category', l('label_task_category') + ':' %>
+      <%= text_field_tag 'category', @task['categoria']['nome'], readonly: true, size: 40 %>
+    </p>
+
+    <p>
+      <%= label_tag 'priority', l('label_task_priority') + ':' %>
+      <%= text_field_tag 'priority', @task['prioridade']['descricao'], readonly: true, size: 40 %>
+    </p>
+  </fieldset>
+
+</div>
+
+<div class="splitcontent" style="float: left;">
+  <fieldset class="box tabular">
+    <h3><%= l('label_task_description') %></h3>
+    <div>
+      <%= @task['descricao'] %>
+    </div>
+  </fieldset>
+</div>
+
+
+<div class="splitcontent" style="width: 100%; float: left;">
+  <fieldset class="box tabular">
+    <h3><%= l('label_task_iterations') %></h3>
+    <% @task['tramites'].each do |t| %>
+    <fieldset class="box tabular">
+      <span><strong># <%=t['id'] %></strong> - <%= DateTime.strptime(t['dataTramite'].to_s, '%s') %> - <%= Time.at(t['dataTramite']).to_datetime %> - <strong><%= t['usuario']['nomeCompleto'] + ' <' + t['usuario']['login'] + '>' %></strong></span>
+      <div><br />
+        <%= t['descricao'] %>
+      </div>
+    </fieldset>
+    <% end %>
+  </fieldset>
+</div>
+<!--<pre style="float: left"><%= @task.inspect %></pre>-->

@@ -1,7 +1,7 @@
 class SuperclassController < ApplicationController
 
   attr_accessor :Hostname, :ServicePrefix, :ActionServiceStatus, :ActionTaskConsult,
-                :ServiceStatus
+                :ActionTaskPreview, :ActionTaskImport
 
   def initialize
     super
@@ -15,6 +15,8 @@ class SuperclassController < ApplicationController
     self.ServicePrefix = Setting.plugin_integrator0800['service_prefix']
     self.ActionServiceStatus = Setting.plugin_integrator0800['action_info_service']
     self.ActionTaskConsult = Setting.plugin_integrator0800['action_task_consult']
+    self.ActionTaskPreview = Setting.plugin_integrator0800['action_task_preview']
+    self.ActionTaskImport = Setting.plugin_integrator0800['action_task_import']
   end
 
   def resource

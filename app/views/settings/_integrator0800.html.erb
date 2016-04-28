@@ -17,4 +17,12 @@
   <p>
     <label for="action_task_consult"><%= l('label_action_task_consult') %>:</label>
     <%= text_field_tag 'settings[action_task_consult]', @settings['action_task_consult'], placeholder: l('placeholder_action_task_consult'), size: 50 %></p>
- </div>
+
+  <p>
+    <label for="action_task_preview"><%= l('label_action_task_preview') %>:</label>
+    <%= text_field_tag 'settings[action_task_preview]', @settings['action_task_preview'], placeholder: l('placeholder_action_task_preview'), size: 50 %></p>
+
+  <p>
+    <label for="action_task_import"><%= l('label_action_task_import') %>:</label>
+    <%= text_field_tag 'settings[action_task_import]', @settings['action_task_import'], placeholder: l('placeholder_action_task_import'), size: 50 %></p>
+</div>

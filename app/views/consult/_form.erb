@@ -4,14 +4,14 @@
       <fieldset class="box tabular">
         <p>
           <label for="nro_chamado"><%= l('label_consultar_chamado') %><span class="required"> *</span></label>
-          <%= number_field_tag :chamado_nro, :required => true, :size => 40 %>
+          <%= number_field_tag 'chamado_nro', if !@task.nil? then @task['id'] end, required: true, min: 0, size: 40 %>
           <%= submit_tag l('btn_consultar_chamado') %>
         </p>
       </fieldset>
-
-      <fieldset class="box tabular">
-        <label></label>
-      </fieldset>
     </div>
+
+    <% if !@task.nil? %>
+        <%= render :partial => 'show' %>
+    <% end %>
 
 <% end %>
