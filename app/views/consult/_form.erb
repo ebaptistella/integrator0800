@@ -6,6 +6,7 @@
           <label for="nro_chamado"><%= l('label_consultar_chamado') %><span class="required"> *</span></label>
           <%= number_field_tag 'chamado_nro', if !@task.nil? then @task['id'] end, required: true, min: 0, size: 40 %>
           <%= submit_tag l('btn_consultar_chamado') %>
+          <%= button_tag l('btn_task_import'), :disabled => true %>
         </p>
       </fieldset>
     </div>

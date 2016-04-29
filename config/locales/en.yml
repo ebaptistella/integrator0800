@@ -1,5 +1,9 @@
 en:
+  plugin_name: "0800Net"
+
   btn_consultar_chamado: "Consultar"
+  btn_task_import: "Criar tarefa"
+
   label_consultar_chamado: "Nro chamado"
   h2_configuration: "Configurações da integração"
   header_consultar_chamado: "Consultar chamado na base do 0800"

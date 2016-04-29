@@ -24,7 +24,12 @@ class SuperclassController < ApplicationController
   end
 
   def getServerStatus
-    return resource[self.ActionServiceStatus].post '', :content_type => :json, :accept => :json
+    return resource[self.ActionServiceStatus].post('', :content_type => :json, :accept => :json) { |response, request, result, &block|
+      case response.code
+        when 200
+          response
+      end }
+
   end
 
 end

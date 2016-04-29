@@ -1,6 +1,8 @@
 class ConsultController < SuperclassController
   unloadable
 
+  before_filter :authorize_global
+
   def index
 
     if request.post?
@@ -18,10 +20,6 @@ class ConsultController < SuperclassController
       end
     end
 
-  end
-
-
-  def show
   end
 
 end
