@@ -1,7 +1,7 @@
 class SuperclassController < ApplicationController
 
   attr_accessor :Hostname, :ServicePrefix, :ActionServiceStatus, :ActionTaskConsult,
-                :ActionTaskPreview, :ActionTaskImport
+                :ActionTaskPreview, :ActionTaskImport, :ProjectId, :RedmineAPIKey, :RedmineAPIUrl
 
   def initialize
     super
@@ -17,14 +17,17 @@ class SuperclassController < ApplicationController
     self.ActionTaskConsult = Setting.plugin_integrator0800['action_task_consult']
     self.ActionTaskPreview = Setting.plugin_integrator0800['action_task_preview']
     self.ActionTaskImport = Setting.plugin_integrator0800['action_task_import']
+    self.ProjectId = Setting.plugin_integrator0800['project_id']
+    self.RedmineAPIUrl = Setting.plugin_integrator0800['redmine_api_url']
+    self.RedmineAPIKey = Setting.plugin_integrator0800['redmine_api_key']
   end
 
   def resource
-    return RestClient::Resource.new(self.Hostname + self.ServicePrefix, :content_type => :json, :accept => :json)
+    return RestClient::Resource.new(self.Hostname + self.ServicePrefix, :headers => { :content_type => :json, :accept => :json, :project_id => self.ProjectId, :api_url => self.RedmineAPIUrl, :api_key => self.RedmineAPIKey })
   end
 
   def getServerStatus
-    return resource[self.ActionServiceStatus].post('', :content_type => :json, :accept => :json) { |response, request, result, &block|
+    return resource[self.ActionServiceStatus].post('') { |response, request, result, &block|
       case response.code
         when 200
           response

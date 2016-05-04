@@ -8,6 +8,15 @@ en:
   h2_configuration: "Configurações da integração"
   header_consultar_chamado: "Consultar chamado na base do 0800"
 
+  label_project_id: "Código do projeto"
+  placeholder_project_id: "central-de-tarefas"
+
+  label_redmine_api_url: "Redmine API URL"
+  placeholder_redmine_api_url: "redmine api url"
+
+  label_redmine_api_key: "Redmine API Key"
+  placeholder_redmine_api_key: "redmine api key"
+
   label_hostname: "Hostname"
   placeholder_hostname: "http://pmo.sysmo.com.br:9950/"
 

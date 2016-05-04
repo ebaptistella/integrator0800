@@ -6,7 +6,7 @@ class ConsultController < SuperclassController
   def index
 
     if request.post?
-      @task = resource[self.ActionTaskPreview].post('{"id": ' + params["chamado_nro"] + '}', :content_type => :json, :accept => :json) { |response, request, result, &block|
+      @task = resource[self.ActionTaskPreview].post('{"id": ' + params["chamado_nro"] + '}') { |response, request, result, &block|
         case response.code
           when 200
             response

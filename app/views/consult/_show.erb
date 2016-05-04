@@ -43,7 +43,7 @@
 </div>
 
 <div style="clear: both "></div>
-<div class="splitcontent" style="float: left;">
+<div class="splitcontent" style="float: left; width: 100%;">
   <fieldset class="box tabular">
     <h3><%= l('label_task_description') %></h3>
     <div>
@@ -58,7 +58,7 @@
     <h3><%= l('label_task_iterations') %></h3>
     <% @task['tramites'].each do |t| %>
     <fieldset class="box tabular">
-      <span><strong># <%=t['id'] %></strong> - <%= DateTime.strptime(t['dataTramite'].to_s, '%s') %> - <%= Time.at(t['dataTramite']).to_datetime %> - <strong><%= t['usuario']['nomeCompleto'] + ' <' + t['usuario']['login'] + '>' %></strong></span>
+      <span><strong>#<%=t['id'] %></strong> - <%= Time.at(t['dataTramite']/1000).strftime('%d.%m.%Y %H:%M:%S') %> - <strong><%= t['usuario']['nomeCompleto'] + ' <' + t['usuario']['login'] + '>' %></strong></span>
       <div><br />
         <%= t['descricao'] %>
       </div>

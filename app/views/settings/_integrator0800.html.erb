@@ -1,5 +1,3 @@
-<h2><%= l('h2_configuration') %></h2>
-
 <div class="box tabular">
   <p>
       <label for="hostname"><%= l('label_hostname') %>:</label>
@@ -8,6 +6,19 @@
   <p>
     <label for="service_prefix"><%= l('label_service_prefix') %>:</label>
     <%= text_field_tag 'settings[service_prefix]', @settings['service_prefix'], placeholder: l('placeholder_service_prefix'), size: 50 %></p>
+
+  <hr />
+  <p>
+    <label for="project_id"><%= l('label_project_id') %>:</label>
+    <%= text_field_tag 'settings[project_id]', @settings['project_id'], placeholder: l('placeholder_project_id'), size: 50 %></p>
+
+  <p>
+    <label for="redmine_api_url"><%= l('label_redmine_api_url') %>:</label>
+    <%= text_field_tag 'settings[redmine_api_url]', @settings['redmine_api_url'], placeholder: l('placeholder_redmine_api_url'), size: 50 %></p>
+
+  <p>
+    <label for="redmine_api_key"><%= l('label_redmine_api_key') %>:</label>
+    <%= text_field_tag 'settings[redmine_api_key]', @settings['redmine_api_key'], placeholder: l('placeholder_redmine_api_key'), size: 50 %></p>
 
   <hr />
   <p>
