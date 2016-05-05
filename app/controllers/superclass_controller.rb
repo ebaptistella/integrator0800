@@ -23,7 +23,7 @@ class SuperclassController < ApplicationController
   end
 
   def resource
-    return RestClient::Resource.new(self.Hostname + self.ServicePrefix, :headers => { :content_type => :json, :accept => :json, :project_id => self.ProjectId, :api_url => self.RedmineAPIUrl, :api_key => self.RedmineAPIKey })
+    return RestClient::Resource.new(self.Hostname + self.ServicePrefix, :headers => { :content_type => :json, :accept => :json, :'project_id' => self.ProjectId, :'api_url' => self.RedmineAPIUrl, :'api_key' => self.RedmineAPIKey })
   end
 
   def getServerStatus
