@@ -5,15 +5,10 @@ Plugin for redmine integration with Ellevo 0800net
 Status [![Build Status](https://travis-ci.org/ebaptistella/integrator0800.svg?branch=master)](https://travis-ci.org/ebaptistella/integrator0800)
 ---------
 
-Supported models
------------------
-+ Issues
-+ Wiki pages
-
 Requirements
 -------------
 + Ruby `>= 2.0.0`
-+ Redmine `>= 3.0.0`
++ Redmine `>= 3.2.0`
 
 Installing
 -----------
