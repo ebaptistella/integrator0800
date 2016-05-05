@@ -30,7 +30,28 @@
         }
 
         $('#flash_error').html('<span>Serviço offline</span>');
-    }
-    ;
+    };
+
+    $.fn.taskRedmineExists = function() {
+        var el = $(this);
+        var chamado_nro = $('#chamado_nro').val();
+
+        if (chamado_nro > 0) {
+            $.ajax({
+                type: 'GET',
+                dataType: 'json',
+                url: 'consult/task_redmine_exists/' + chamado_nro,
+                success: function (data) {
+                    el.removeAttr("disabled");
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    el.attr("disabled", true);
+                }
+            });
+        } else {
+            el.attr("disabled", true);
+        }
+
+    };
 
 }(jQuery));

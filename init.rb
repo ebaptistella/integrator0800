@@ -8,6 +8,7 @@ Redmine::Plugin.register :integrator0800 do
   url 'http://ebaptistella.github.io/integrator0800/'
   author_url 'https://about.me/euridesbaptistella'
 
+  requires_redmine :version_or_higher => '3.0.0'
   settings :default => {'empty' => true}, :partial => 'settings/integrator0800'
 
   project_module :integrator0800 do
@@ -18,7 +19,7 @@ Redmine::Plugin.register :integrator0800 do
        :integrator0800,
        {:controller => 'consult', :action => 'index'},
        :caption => '0800Net',
-       :param => :id,
+       :param => :project_id,
        :after => :activity,
        :if => Proc.new { !Setting.plugin_integrator0800['hostname'].blank? })
 end

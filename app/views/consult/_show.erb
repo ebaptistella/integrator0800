@@ -4,20 +4,20 @@
 
     <p>
       <%= label_tag 'title', l('label_task_title') + ':' %>
-      <%= text_field_tag 'title', @task['titulo'], readonly: true, size: 40 %>
+      <%= text_field_tag 'title', @task['titulo'], readonly: true, size: 30 %>
     </p>
 
     <% @task['camposPersonalizados'].each do |p| %>
         <p>
           <%= label_tag p['id'], p['nome'] + ':' %>
-          <%= text_field_tag p['id'], p['texto'], readonly: true, size: 40 %>
+          <%= text_field_tag p['id'], p['texto'], readonly: true, size: 30 %>
         </p>
 
     <% end %>
 
     <p>
       <%= label_tag 'project', l('label_task_project') + ':' %>
-      <%= text_field_tag 'project', @task['projeto']['descricao'], readonly: true, size: 40 %>
+      <%= text_field_tag 'project', @task['projeto']['descricao'], readonly: true, size: 30 %>
     </p>
   </fieldset>
 </div>
@@ -26,17 +26,17 @@
   <fieldset class="box tabular">
     <p>
       <%= label_tag 'responsible', l('label_task_responsible') + ':' %>
-      <%= text_field_tag 'responsible', @task['atribuido']['nomeCompleto'] + ' <' + @task['atribuido']['login'] + '>', readonly: true, size: 40 %>
+      <%= text_field_tag 'responsible', @task['atribuido']['nomeCompleto'] + ' <' + @task['atribuido']['login'] + '>', readonly: true, size: 30 %>
     </p>
 
     <p>
       <%= label_tag 'category', l('label_task_category') + ':' %>
-      <%= text_field_tag 'category', @task['categoria']['nome'], readonly: true, size: 40 %>
+      <%= text_field_tag 'category', @task['categoria']['nome'], readonly: true, size: 30 %>
     </p>
 
     <p>
       <%= label_tag 'priority', l('label_task_priority') + ':' %>
-      <%= text_field_tag 'priority', @task['prioridade']['descricao'], readonly: true, size: 40 %>
+      <%= text_field_tag 'priority', @task['prioridade']['descricao'], readonly: true, size: 30 %>
     </p>
   </fieldset>
 
@@ -66,4 +66,3 @@
     <% end %>
   </fieldset>
 </div>
-<!--<pre style="float: left"><%= @task.inspect %></pre>-->

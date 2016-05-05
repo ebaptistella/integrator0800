@@ -35,4 +35,7 @@ class SuperclassController < ApplicationController
 
   end
 
+  def load_project
+    @project = Project.find_by_identifier(params[:project_id])
+  end
 end
