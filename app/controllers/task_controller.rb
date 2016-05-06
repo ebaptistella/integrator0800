@@ -53,7 +53,7 @@ class TaskController < SuperclassController
     else
       success = JSON.parse(@task[:success])
       flash[:notice] = l('mensagem_chamado_importado')
-      redirect_to :controller => :issues, :action => :edit, :id => success['id']
+      redirect_to :controller => :issues, :action => :show, :id => success['id']
     end
   end
 
