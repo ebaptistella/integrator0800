@@ -44,10 +44,10 @@
                 dataType: 'json',
                 url: 'taskRedmineExists/' + chamado_nro,
                 success: function (data) {
-                    el.removeAttr("disabled");
+                    el.attr("disabled", true);
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    el.attr("disabled", true);
+                    el.removeAttr("disabled");
                 }
             });
         } else {
