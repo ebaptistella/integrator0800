@@ -44,9 +44,11 @@
                 dataType: 'json',
                 url: 'taskRedmineExists/' + chamado_nro,
                 success: function (data) {
-                    el.attr("disabled", true);
                     if (data && data.id > 0){
+                        el.attr("disabled", true);
                         $.fn.statusError("Este chamado já foi importado e originou a tarefa: <a href='/issues/" + data.id + "'>#" + data.id + "</a>");    
+                    }else{
+                        el.removeAttr("disabled");    
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
