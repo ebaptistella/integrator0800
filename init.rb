@@ -12,12 +12,13 @@ Redmine::Plugin.register :integrator0800 do
   settings :default => {'empty' => true}, :partial => 'settings/integrator0800'
 
   project_module :integrator0800 do
-    permission :consultar_chamado, {:consult => [:index]}, :require => :member
+    permission :consultar_chamado, {:task => [:consult]}, :require => :member
+    permission :importar_chamado, {:task => [:create]}, :require => :member
   end
 
   menu(:project_menu,
        :integrator0800,
-       {:controller => 'consult', :action => 'index'},
+       {:controller => 'task', :action => 'consult'},
        :caption => '0800Net',
        :param => :project_id,
        :after => :activity,

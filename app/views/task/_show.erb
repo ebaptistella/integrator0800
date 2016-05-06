@@ -1,7 +1,5 @@
 <div class="splitcontentleft">
   <fieldset class="box tabular">
-    <%= hidden_field_tag 'id', @task['id'], readonly: true, size: 10 %>
-
     <p>
       <%= label_tag 'title', l('label_task_title') + ':' %>
       <%= text_field_tag 'title', @task['titulo'], readonly: true, size: 30 %>

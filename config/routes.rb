@@ -5,17 +5,20 @@
 RedmineApp::Application.routes.draw do
   scope "/projects/:project_id/integrator0800" do
 
-    get 'consult',
-        :to => 'consult#index'
+    get 'task/consult',
+        :to => 'task#consult'
 
-    post 'consult',
-         :to => 'consult#index'
+    post 'task/consult',
+         :to => 'task#consult'
 
-    get 'consult/task_redmine_exists/:chamado_nro',
-        :to => 'consult#task_redmine_exists'
+    get 'task/taskRedmineExists/:chamado_nro',
+        :to => 'task#taskRedmineExists'
 
-    get 'service/status',
+    get 'task/serviceStatus',
         :to => 'service#status'
+
+    post 'task/import',
+         :to => 'task#import'
 
   end
 end

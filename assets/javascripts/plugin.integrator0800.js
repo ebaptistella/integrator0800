@@ -8,7 +8,7 @@
         $.ajax({
             type: 'GET',
             dataType: 'json',
-            url: 'service/status',
+            url: 'serviceStatus',
             success: function (data) {
                 if ((!data) || (!data.statusServidor)) {
                     $.fn.statusError();
@@ -20,7 +20,9 @@
         });
     };
 
-    $.fn.statusError = function () {
+    $.fn.statusError = function (message) {
+        message = typeof message !== 'undefined' ? message : 'Serviço offline';
+
         if (!$('#content').length) {
             $('body').prepend('<div id="content"></div>');
         }
@@ -29,10 +31,10 @@
             $('#content').prepend('<div class="flash warning" id="flash_error"></div>');
         }
 
-        $('#flash_error').html('<span>Serviço offline</span>');
+        $('#flash_error').html('<span>' + message + '</span>');
     };
 
-    $.fn.taskRedmineExists = function() {
+    $.fn.taskRedmineExists = function () {
         var el = $(this);
         var chamado_nro = $('#chamado_nro').val();
 
@@ -40,7 +42,7 @@
             $.ajax({
                 type: 'GET',
                 dataType: 'json',
-                url: 'consult/task_redmine_exists/' + chamado_nro,
+                url: 'taskRedmineExists/' + chamado_nro,
                 success: function (data) {
                     el.removeAttr("disabled");
                 },

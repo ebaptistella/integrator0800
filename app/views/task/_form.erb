@@ -1,0 +1,20 @@
+<div class="splitcontent">
+  <fieldset class="box tabular">
+    <%= form_tag({:controller => :task, :action => :consult}, {:method => :post}) do |f| %>
+    <p>
+        <label for="nro_chamado"><%= l('label_consultar_chamado') %><span class="required"> *</span></label>
+        <%= number_field_tag 'chamado_nro', if !@task.nil? then @task['id'] end, required: true, min: 0, size: 40 %>
+        <%= button_tag l('btn_consultar_chamado'), :class => 'btn btn-primary' %>
+        <%= button_tag l('btn_task_import'), :type => 'button', :id => 'btn_task_import', :disabled => true, :class => 'btn btn-success' %>
+    </p>
+    <% end %>
+  </fieldset>
+</div>
+
+<% if !@task.nil? %>
+    <%= form_tag({:controller => :task, :action => :import}, {:method => :post, :id => 'frm_import'}) do |f| %>
+        <%= hidden_field_tag 'id', if !@task.nil? then @task['id'] end %>
+    <% end %>
+
+    <%= render :partial => 'show' %>
+<% end %>

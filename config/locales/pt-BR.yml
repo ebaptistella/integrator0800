@@ -37,6 +37,8 @@ pt-BR:
 
   mensagem_chamado_nao_encontrado: "Chamado não encontrado"
   mensagem_chamado_encontrado: "Chamado encontrado"
+  mensagem_chamado_nao_importado: "Não foi possível criar a tarefa"
+  mensagem_chamado_importado: "Tarefa importada com sucesso"
 
   label_task_id: "Nro chamado"
   label_task_title: "Título"
