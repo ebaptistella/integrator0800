@@ -2,9 +2,9 @@ require 'redmine'
 
 Redmine::Plugin.register :integrator0800 do
   name 'Integrator 0800 Plugin'
-  author 'Eurides Baptistella'
+  author 'Eurides Baptistella/Adriano Baptistella'
   description 'Integração com 0800net'
-  version '0.0.1'
+  version '0.1.0'
   url 'http://ebaptistella.github.io/integrator0800/'
   author_url 'https://about.me/euridesbaptistella'
 

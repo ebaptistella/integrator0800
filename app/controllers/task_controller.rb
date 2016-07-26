@@ -7,14 +7,21 @@ class TaskController < SuperclassController
   def consult
 
     if request.post?
-      @task = resource[self.ActionTaskPreview].post('{"id": ' + params["chamado_nro"] + '}') { |response, request, result, &block|
+      if (params["tipo_consulta"].eql?  "tarefa")
+        req = self.ActionTask2Consult
+      else
+        req = self.ActionTask1Consult
+      end
+
+
+      @task = resource[req].post('{"id": ' + params["registro_nro"] + '}') { |response, request, result, &block|
         case response.code
           when 200
             response
         end }
 
       if @task.nil?
-        flash[:error] = l('mensagem_chamado_nao_encontrado')
+        flash[:error] = l('mensagem_registro_nao_encontrado')
         redirect_to :action => 'consult'
       else
         @task = JSON.parse(@task);
@@ -23,22 +30,8 @@ class TaskController < SuperclassController
 
   end
 
-  def taskRedmineExists
-    @task = resource[self.ActionTaskConsult].post('{"id": ' + params["chamado_nro"] + '}') { |response, request, result, &block|
-      case response.code
-        when 200
-          response
-      end }
-
-    if @task.nil?
-      render :status => 204, :json => {}.to_json
-    else
-      render :status => 200, :json => @task
-    end
-  end
-
   def import
-    @task = resource[self.ActionTaskImport].post('{"id": ' + params["id"] + '}') { |response, request, result, &block|
+    @task = resource[self.ActionTask2Import].post('{"id": ' + params["id"] + '}') { |response, request, result, &block|
       case response.code
         when 200
           {:success => response}
@@ -52,7 +45,7 @@ class TaskController < SuperclassController
       redirect_to :action => 'consult'
     else
       success = JSON.parse(@task[:success])
-      flash[:notice] = l('mensagem_chamado_importado')
+      flash[:notice] = l('mensagem_registro_importado')
       redirect_to :controller => :issues, :action => :show, :id => success['id']
     end
   end

@@ -1,7 +1,7 @@
 class SuperclassController < ApplicationController
 
-  attr_accessor :Hostname, :ServicePrefix, :ActionServiceStatus, :ActionTaskConsult,
-                :ActionTaskPreview, :ActionTaskImport, :ProjectId, :RedmineAPIKey, :RedmineAPIUrl
+  attr_accessor :Hostname, :ServicePrefix, :ActionServiceStatus, :ActionTask1Consult,
+                :ActionTask2Consult, :ActionTask2Import, :ProjectId, :RedmineAPIKey, :RedmineAPIUrl
 
   def initialize
     super
@@ -14,12 +14,12 @@ class SuperclassController < ApplicationController
     self.Hostname = Setting.plugin_integrator0800['hostname']
     self.ServicePrefix = Setting.plugin_integrator0800['service_prefix']
     self.ActionServiceStatus = Setting.plugin_integrator0800['action_info_service']
-    self.ActionTaskConsult = Setting.plugin_integrator0800['action_task_consult']
-    self.ActionTaskPreview = Setting.plugin_integrator0800['action_task_preview']
-    self.ActionTaskImport = Setting.plugin_integrator0800['action_task_import']
-    self.ProjectId = Setting.plugin_integrator0800['project_id']
+    self.ActionTask1Consult = Setting.plugin_integrator0800['action_task1_consult']
+    self.ActionTask2Consult = Setting.plugin_integrator0800['action_task2_consult']
+    self.ActionTask2Import = Setting.plugin_integrator0800['action_task2_import']
     self.RedmineAPIUrl = Setting.plugin_integrator0800['redmine_api_url']
     self.RedmineAPIKey = Setting.plugin_integrator0800['redmine_api_key']
+    self.ProjectId = ''
   end
 
   def resource
@@ -37,5 +37,10 @@ class SuperclassController < ApplicationController
 
   def load_project
     @project = Project.find_by_identifier(params[:project_id])
+    if (!@project.nil?)
+      self.ProjectId = params[:project_id]
+    else
+      self.ProjectId = ''
+    end
   end
 end

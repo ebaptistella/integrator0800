@@ -2,10 +2,17 @@
   <fieldset class="box tabular">
     <%= form_tag({:controller => :task, :action => :consult}, {:method => :post}) do |f| %>
     <p>
-        <label for="nro_chamado"><%= l('label_consultar_chamado') %><span class="required"> *</span></label>
-        <%= number_field_tag 'chamado_nro', if !@task.nil? then @task['id'] end, required: true, min: 0, size: 40 %>
-        <%= button_tag l('btn_consultar_chamado'), :class => 'btn btn-primary' %>
-        <%= button_tag l('btn_task_import'), :type => 'button', :id => 'btn_task_import', :disabled => true, :class => 'btn btn-success' %>
+      <label for="tipo_consulta"><%= l('label_tipo_consulta') %><span class="required"> *</span></label>
+      <%= select_tag 'tipo_consulta', options_for_select([["1 - Tarefa 0800", "tarefa"], [ "2 - Chamado 0800", "chamado" ]], selected: params["tipo_consulta"], disabled: "chamado"), required: true %>
+    </p>
+    <p>
+      <label for="registro_nro"><%= l('label_consultar_registro') %><span class="required"> *</span></label>
+      <%= number_field_tag 'registro_nro', if !@task.nil? then @task['id'] end, required: true, min: 0, size: 40 %>
+    </p>
+
+    <p>
+      <%= button_tag l('btn_consultar_registro'), :class => 'btn btn-primary' %>
+      <%= button_tag l('btn_task_import'), :type => 'button', :id => 'btn_task_import', :disabled => if (params["tipo_consulta"].eql? "tarefa") then false else true end, :class => 'btn btn-success' %>
     </p>
     <% end %>
   </fieldset>

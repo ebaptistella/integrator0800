@@ -1,39 +1,57 @@
-<div class="box tabular">
-  <p>
+<div class="tabs">
+  <ul>
+    <li><a href="#info" onclick="showTab('info', this.href); this.blur(); return false;" class="selected" id="tab-info"><%= l('config_service') %></a></li>
+    <li><a href="#task1" onclick="showTab('task1', this.href); this.blur(); return false;" id="tab-task1"><%= l('config_task1') %></a></li>
+    <li><a href="#task2" onclick="showTab('task2', this.href); this.blur(); return false;" id="tab-task2"><%= l('config_task2') %></a></li>
+  </ul>
+</div>
+
+<div class="tab-content" id="tab-content-info">
+  <div class="box tabular">
+    <p>
       <label for="hostname"><%= l('label_hostname') %>:</label>
       <%= text_field_tag 'settings[hostname]', @settings['hostname'], placeholder: l('placeholder_hostname'), size: 70  %></p>
 
-  <p>
-    <label for="service_prefix"><%= l('label_service_prefix') %>:</label>
-    <%= text_field_tag 'settings[service_prefix]', @settings['service_prefix'], placeholder: l('placeholder_service_prefix'), size: 50 %></p>
+    <p>
+      <label for="service_prefix"><%= l('label_service_prefix') %>:</label>
+      <%= text_field_tag 'settings[service_prefix]', @settings['service_prefix'], placeholder: l('placeholder_service_prefix'), size: 50 %></p>
 
-  <hr />
-  <p>
-    <label for="project_id"><%= l('label_project_id') %>:</label>
-    <%= text_field_tag 'settings[project_id]', @settings['project_id'], placeholder: l('placeholder_project_id'), size: 50 %></p>
+    <hr />
+    <p>
+      <label for="redmine_api_url"><%= l('label_redmine_api_url') %>:</label>
+      <%= text_field_tag 'settings[redmine_api_url]', @settings['redmine_api_url'], placeholder: l('placeholder_redmine_api_url'), size: 50 %></p>
 
-  <p>
-    <label for="redmine_api_url"><%= l('label_redmine_api_url') %>:</label>
-    <%= text_field_tag 'settings[redmine_api_url]', @settings['redmine_api_url'], placeholder: l('placeholder_redmine_api_url'), size: 50 %></p>
+    <p>
+      <label for="redmine_api_key"><%= l('label_redmine_api_key') %>:</label>
+      <%= text_field_tag 'settings[redmine_api_key]', @settings['redmine_api_key'], placeholder: l('placeholder_redmine_api_key'), size: 50 %></p>
 
-  <p>
-    <label for="redmine_api_key"><%= l('label_redmine_api_key') %>:</label>
-    <%= text_field_tag 'settings[redmine_api_key]', @settings['redmine_api_key'], placeholder: l('placeholder_redmine_api_key'), size: 50 %></p>
+    <hr />
+    <p>
+      <label for="action_info_service"><%= l('label_action_info_service') %>:</label>
+      <%= text_field_tag 'settings[action_info_service]', @settings['action_info_service'], placeholder: l('placeholder_action_info_service'), size: 50 %></p>
 
-  <hr />
-  <p>
-    <label for="action_info_service"><%= l('label_action_info_service') %>:</label>
-    <%= text_field_tag 'settings[action_info_service]', @settings['action_info_service'], placeholder: l('placeholder_action_info_service'), size: 50 %></p>
+  </div>
+</div>
 
-  <p>
-    <label for="action_task_consult"><%= l('label_action_task_consult') %>:</label>
-    <%= text_field_tag 'settings[action_task_consult]', @settings['action_task_consult'], placeholder: l('placeholder_action_task_consult'), size: 50 %></p>
 
-  <p>
-    <label for="action_task_preview"><%= l('label_action_task_preview') %>:</label>
-    <%= text_field_tag 'settings[action_task_preview]', @settings['action_task_preview'], placeholder: l('placeholder_action_task_preview'), size: 50 %></p>
+<div class="tab-content" id="tab-content-task1" style="display:none">
+  <div class="box tabular">
+    <p>
+      <label for="action_task_consult"><%= l('label_action_task1_consult') %>:</label>
+      <%= text_field_tag 'settings[action_task1_consult]', @settings['action_task1_consult'], placeholder: l('placeholder_action_task1_consult'), size: 50 %></p>
 
-  <p>
-    <label for="action_task_import"><%= l('label_action_task_import') %>:</label>
-    <%= text_field_tag 'settings[action_task_import]', @settings['action_task_import'], placeholder: l('placeholder_action_task_import'), size: 50 %></p>
+  </div>
+</div>
+
+
+<div class="tab-content" id="tab-content-task2" style="display:none">
+  <div class="box tabular">
+    <p>
+      <label for="action_task2_consult"><%= l('label_action_task2_consult') %>:</label>
+      <%= text_field_tag 'settings[action_task2_consult]', @settings['action_task2_consult'], placeholder: l('placeholder_action_task2_consult'), size: 50 %></p>
+
+    <p>
+      <label for="action_task2_import"><%= l('label_action_task2_import') %>:</label>
+      <%= text_field_tag 'settings[action_task2_import]', @settings['action_task2_import'], placeholder: l('placeholder_action_task2_import'), size: 50 %></p>
+  </div>
 </div>

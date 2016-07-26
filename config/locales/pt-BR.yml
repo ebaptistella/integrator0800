@@ -1,12 +1,17 @@
 pt-BR:
   plugin_name: "0800Net"
 
-  btn_consultar_chamado: "Consultar"
+  btn_consultar_registro: "Consultar"
   btn_task_import: "Criar tarefa"
 
-  label_consultar_chamado: "Nro chamado"
+  label_tipo_consulta: "Tipo"
+  label_consultar_registro: "Nro registro"
   h2_configuration: "Configurações da integração"
-  header_consultar_chamado: "Consultar chamado na base do 0800"
+  header_consultar: "Consultar registro na base do 0800net"
+
+  config_service: "Configurar serviço"
+  config_task1: "Configurar API chamados"
+  config_task2: "Configurar API tarefas"
 
   label_project_id: "Código do projeto"
   placeholder_project_id: "central-de-tarefas"
@@ -26,21 +31,21 @@ pt-BR:
   label_action_info_service: "Serviço: Status do servidor"
   placeholder_action_info_service: "infoService/obterInfoService"
 
-  label_action_task_consult: "Serviço: consultar chamado"
-  placeholder_action_task_consult: "chamado/consulta"
+  label_action_task1_consult: "Serviço: consultar chamado"
+  placeholder_action_task1_consult: "chamado/consulta"
 
-  label_action_task_preview: "Serviço: preview do chamado"
-  placeholder_action_task_preview: "chamado/preview"
+  label_action_task2_consult: "Serviço: consultar tarefa"
+  placeholder_action_task2_consult: "tarefa/consulta0800"
 
-  label_action_task_import: "Serviço: importar chamado"
-  placeholder_action_task_import: "chamado/importar"
+  label_action_task2_import: "Serviço: importar tarefa"
+  placeholder_action_task2_import: "tarefa/importar"
 
-  mensagem_chamado_nao_encontrado: "Chamado não encontrado"
-  mensagem_chamado_encontrado: "Chamado encontrado"
-  mensagem_chamado_nao_importado: "Não foi possível criar a tarefa"
-  mensagem_chamado_importado: "Tarefa importada com sucesso"
+  mensagem_registro_nao_encontrado: "Registro não encontrado"
+  mensagem_registro_encontrado: "Registro encontrado"
+  mensagem_registro_nao_importado: "Não foi possível criar a tarefa"
+  mensagem_registro_importado: "Tarefa importada com sucesso"
 
-  label_task_id: "Nro chamado"
+  label_task_id: "Nro registro"
   label_task_title: "Título"
   label_task_responsible: "Responsável"
   label_task_project: "Produto"
