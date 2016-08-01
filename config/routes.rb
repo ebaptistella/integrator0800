@@ -9,16 +9,13 @@ RedmineApp::Application.routes.draw do
         :to => 'task#consult'
 
     post 'task/consult',
-         :to => 'task#consult'
-
-    get 'task/taskRedmineExists/:chamado_nro',
-        :to => 'task#taskRedmineExists'
+        :to => 'task#consult'
 
     get 'task/serviceStatus',
         :to => 'service#status'
 
     post 'task/import',
-         :to => 'task#import'
+        :to => 'task#import'
 
   end
 end
