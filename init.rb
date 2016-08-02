@@ -4,7 +4,7 @@ Redmine::Plugin.register :integrator0800 do
   name 'Integrator 0800 Plugin'
   author 'Eurides Baptistella/Adriano Baptistella'
   description 'Integração com 0800net'
-  version '0.1.0'
+  version '0.1.1'
   url 'http://ebaptistella.github.io/integrator0800/'
   author_url 'https://about.me/euridesbaptistella'
 
@@ -13,7 +13,7 @@ Redmine::Plugin.register :integrator0800 do
 
   project_module :integrator0800 do
     permission :consultar_chamado, {:task => [:consult]}, :require => :member
-    permission :importar_chamado, {:task => [:create]}, :require => :member
+    permission :importar_chamado, {:task => [:import]}, :require => :member
   end
 
   menu(:project_menu,
