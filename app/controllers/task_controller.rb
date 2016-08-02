@@ -1,8 +1,8 @@
 class TaskController < SuperclassController
   unloadable
 
-  before_filter :authorize_global
   before_filter :load_project
+  before_filter :authorize
 
   def consult
 
@@ -31,6 +31,7 @@ class TaskController < SuperclassController
   end
 
   def import
+    
     @task = resource[self.ActionTask2Import].post('{"id": ' + params["id"] + '}') { |response, request, result, &block|
       case response.code
         when 200
@@ -48,6 +49,7 @@ class TaskController < SuperclassController
       flash[:notice] = l('mensagem_registro_importado')
       redirect_to :controller => :issues, :action => :show, :id => success['id']
     end
+    
   end
 
 end
