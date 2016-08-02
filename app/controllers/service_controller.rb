@@ -1,8 +1,8 @@
 class ServiceController < SuperclassController
   unloadable
 
-  #before_filter :authorize_global
   before_filter :load_project
+  before_filter :authorize
 
   def status
     render :json => getServerStatus;
