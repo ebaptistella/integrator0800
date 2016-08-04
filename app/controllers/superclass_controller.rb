@@ -38,9 +38,9 @@ class SuperclassController < ApplicationController
   def load_project
     @project = Project.find_by_identifier(params[:project_id])
     if (!@project.nil?)
-      self.ProjectId = params[:project_id]
+      self.ProjectId = @project.id
     else
-      self.ProjectId = ''
+      self.ProjectId = 1
     end
   end
 end
