@@ -5,7 +5,6 @@ class TaskController < SuperclassController
   before_filter :authorize
 
   def consult
-
     if request.post?
       if (params["tipo_consulta"].eql?  "tarefa")
         req = self.ActionTask2Consult
@@ -31,7 +30,6 @@ class TaskController < SuperclassController
   end
 
   def import
-    
     @task = resource[self.ActionTask2Import].post('{"id": ' + params["id"] + '}') { |response, request, result, &block|
       case response.code
         when 200

@@ -1,7 +1,9 @@
 class SuperclassController < ApplicationController
+  unloadable
 
   attr_accessor :Hostname, :ServicePrefix, :ActionServiceStatus, :ActionTask1Consult,
-                :ActionTask2Consult, :ActionTask2Import, :ProjectId, :RedmineAPIKey, :RedmineAPIUrl
+                :ActionTask2Consult, :ActionTask2Import, :ProjectId, :RedmineAPIKey,
+                :RedmineAPIUrl, :UserId
 
   def initialize
     super
@@ -23,7 +25,9 @@ class SuperclassController < ApplicationController
   end
 
   def resource
-    return RestClient::Resource.new(self.Hostname + self.ServicePrefix, :headers => { :content_type => :json, :accept => :json, 'project_id' => self.ProjectId, 'api_url' => self.RedmineAPIUrl, 'api_key' => self.RedmineAPIKey })
+    self.UserId = session[:user_id].nil? ? User.current.id : session[:user_id]    
+
+    return RestClient::Resource.new(self.Hostname + self.ServicePrefix, :headers => { :content_type => :json, :accept => :json, 'project_id' => self.ProjectId, 'api_url' => self.RedmineAPIUrl, 'api_key' => self.RedmineAPIKey, 'user_id' => self.UserId })
   end
 
   def getServerStatus
@@ -38,9 +42,9 @@ class SuperclassController < ApplicationController
   def load_project
     @project = Project.find_by_identifier(params[:project_id])
     if (!@project.nil?)
-      self.ProjectId = params[:project_id]
+      self.ProjectId = @project.id
     else
-      self.ProjectId = ''
+      self.ProjectId = 1
     end
   end
 end
